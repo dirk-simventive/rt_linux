@@ -214,3 +214,70 @@ EtherLab 1.6.9 runs successfully on this machine.
 3. Verify EK1100/CX and EL terminals are detected.
 4. Build ethercat_driver_ros2.
 5. Create first ros2_control example.
+
+## Hardware Scan Update
+
+The Beckhoff hardware was connected and successfully detected.
+
+Hardware stack:
+
+Laptop enp131s0
+→ EK1100
+→ EL2008
+→ EL1809
+
+Physical link verification:
+
+sudo ethtool enp131s0
+
+Result:
+
+Speed: 100Mb/s
+Duplex: Full
+Link detected: yes
+
+Initially EtherLab still reported:
+
+Phase: Waiting for device(s)
+Link: DOWN
+Slaves: 0
+
+Investigation showed that ec_master was loaded but ec_generic was not.
+
+Root cause:
+
+DEVICE_MODULES="generic"
+DEVICE_MODULES=""
+
+The second line overrode the first.
+
+Fixed configuration:
+
+MASTER0_DEVICE="b0:25:aa:87:4b:f7"
+DEVICE_MODULES="generic"
+
+File:
+
+/usr/local/etherlab/etc/sysconfig/ethercat
+
+After restarting the EtherCAT master:
+
+sudo /usr/local/etherlab/etc/init.d/ethercat stop
+sudo /usr/local/etherlab/etc/init.d/ethercat start
+
+the following modules were loaded:
+
+ec_generic
+ec_master
+
+and slave detection succeeded:
+
+0  0:0  PREOP  +  EK1100 EtherCAT-Koppler (2A E-Bus)
+1  0:1  PREOP  +  EL2008 8K. Dig. Ausgang 24V, 0.5A
+2  0:2  PREOP  +  EL1809 16K. Dig. Eingang 24V, 3ms
+
+Artifacts are stored in:
+
+artifacts/ethercat_scan_ek1100_el2008_el1809/
+
+This completes the first successful EtherCAT hardware bring-up on the Linux laptop.
