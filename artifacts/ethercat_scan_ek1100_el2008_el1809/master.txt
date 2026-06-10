@@ -5,25 +5,25 @@ Master0
   Ethernet devices:
     Main: b0:25:aa:87:4b:f7 (attached)
       Link: UP
-      Tx frames:   121516
-      Tx bytes:    7291120
-      Rx frames:   121515
-      Rx bytes:    7291060
+      Tx frames:   1083086
+      Tx bytes:    64985320
+      Rx frames:   1083085
+      Rx bytes:    64985260
       Tx errors:   0
-      Tx frame rate [1/s]:    429    445    452
-      Tx rate [KByte/s]:     25.1   26.1   26.5
-      Rx frame rate [1/s]:    429    445    452
-      Rx rate [KByte/s]:     25.1   26.1   26.5
+      Tx frame rate [1/s]:    432    456    465
+      Tx rate [KByte/s]:     25.3   26.7   27.3
+      Rx frame rate [1/s]:    432    456    465
+      Rx rate [KByte/s]:     25.3   26.7   27.3
     Common:
-      Tx frames:   121516
-      Tx bytes:    7291120
-      Rx frames:   121515
-      Rx bytes:    7291060
+      Tx frames:   1083086
+      Tx bytes:    64985320
+      Rx frames:   1083085
+      Rx bytes:    64985260
       Lost frames: 0
-      Tx frame rate [1/s]:    429    445    452
-      Tx rate [KByte/s]:     25.1   26.1   26.5
-      Rx frame rate [1/s]:    429    445    452
-      Rx rate [KByte/s]:     25.1   26.1   26.5
+      Tx frame rate [1/s]:    432    456    465
+      Tx rate [KByte/s]:     25.3   26.7   27.3
+      Rx frame rate [1/s]:    432    456    465
+      Rx rate [KByte/s]:     25.3   26.7   27.3
       Loss rate [1/s]:          0      0      0
       Frame loss [%]:         0.0    0.0    0.0
   Distributed clocks:
